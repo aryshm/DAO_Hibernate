@@ -11,13 +11,26 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "persons")
+@IdClass(PersonDataPrimaryKey.class)
 @Entity
 public class Person {
 
-    @EmbeddedId
-    private PersonDataPrimaryKey data;
+    @Id
+    @Column(name="name")
+    private String name;
 
-    private int phone_number;
-    private String city_of_living;
+    @Id
+    @Column(name="surname")
+    private String surName;
+
+    @Id
+    @Column(name="age")
+    private int age;
+
+    @Column(name="phone_number")
+    private String phoneNumber;
+
+    @Column(name="city_of_living")
+    private String cityOfLiving;
 
 }
